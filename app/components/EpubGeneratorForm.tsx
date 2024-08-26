@@ -155,7 +155,10 @@ const EpubGeneratorForm: FC<Props> = () => {
     setBookContent(data);
   };
 
-  const handleChange: ChangeEventHandler<HTMLInputElement> = ({ target }) => {};
+  const handleChange: ChangeEventHandler<HTMLInputElement> = ({ target }) => {
+    const { name, value } = target;
+    setCommonBookContent({ ...commonBookContent, [name]: value });
+  };
 
   const handlePosterSelection: ChangeEventHandler<HTMLInputElement> = ({
     target,
@@ -251,7 +254,7 @@ const EpubGeneratorForm: FC<Props> = () => {
               >
                 <AutoGenInput
                   name={item.title}
-                  onChange={handleChange}
+                  onChange={() => {}}
                   placeholder="Chapter Name"
                   value={item.title}
                   onMagic={() => handleBookBodyGeneration(index)}
